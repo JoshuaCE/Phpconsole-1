@@ -1,4 +1,4 @@
-<?php namespace Phpconsole\Library;
+<?php namespace Phpconsole;
 
 /**
 * http://phpconsole.com
@@ -313,7 +313,7 @@ class Phpconsole {
 
         if(!$this->is_initialized()) {
 
-            register_shutdown_function('phpconsole::shutdown', $this);
+            register_shutdown_function('Phpconsole\Phpconsole::shutdown', $this);
 
             $this->initialized = true;
         }
