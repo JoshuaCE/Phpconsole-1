@@ -28,7 +28,10 @@ class PhpconsoleServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		$this->app['phpconsole'] = $this->app->share(function($app)
+		{
+			return new Console;
+		});
 	}
 
 	/**
@@ -38,7 +41,7 @@ class PhpconsoleServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array();
+		return array('phpconsole');
 	}
 
 }
