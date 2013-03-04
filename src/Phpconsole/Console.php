@@ -10,6 +10,13 @@ class Console {
 	protected $request;
 
 	/**
+	 * Illuminate config repository.
+	 * 
+	 * @var Illuminate\Config\Repository
+	 */
+	protected $config;
+
+	/**
 	 * Phpconsole object.
 	 * 
 	 * @var Phpconsole\Library\Phpconsole
@@ -19,12 +26,14 @@ class Console {
 	/**
 	 * Create a new Phpconsole instance.
 	 * 
-	 * @param  Illuminate\Http\Request $request
+	 * @param  Illuminate\Http\Request      $request
+	 * @param  Illuminate\Config\Repository $config
 	 * @return void
 	 */
-	public function __construct($request)
+	public function __construct($request, $config)
 	{
 		$this->request = $request;
+		$this->config = $config;
 
 		// Create new Phpconsole instance.
 		$this->phpconsole = new Phpconsole;
