@@ -29,7 +29,7 @@ class Console {
 		// Create new Phpconsole instance.
 		$this->phpconsole = new Phpconsole;
 
-		// Set backtrace depth to 1 so we get the file
+		// Set backtrace depth to 1 by default so we get the file
 		// and line where the user called the test.
 		$this->phpconsole->set_backtrace_depth(1);
 
