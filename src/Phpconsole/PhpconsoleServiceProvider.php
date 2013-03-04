@@ -30,7 +30,7 @@ class PhpconsoleServiceProvider extends ServiceProvider {
 	{
 		$this->app['phpconsole'] = $this->app->share(function($app)
 		{
-			return new Console($app);
+			return new Console($app['request']);
 		});
 	}
 

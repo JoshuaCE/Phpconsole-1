@@ -3,11 +3,11 @@
 class Console {
 
 	/**
-	 * Illuminate application instance.
+	 * Illuminate request interface.
 	 * 
-	 * @var Illuminate\Foundation\Application
+	 * @var Illuminate\Http\Request
 	 */
-	protected $app;
+	protected $request;
 
 	/**
 	 * Phpconsole object.
@@ -19,12 +19,12 @@ class Console {
 	/**
 	 * Create a new Phpconsole instance.
 	 * 
-	 * @param  Phpconsole\Library\Phpconsole $app
+	 * @param  Illuminate\Http\Request $request
 	 * @return void
 	 */
-	public function __construct($app)
+	public function __construct($request)
 	{
-		$this->app = $app;
+		$this->request = $request;
 
 		// Create new Phpconsole instance.
 		$this->phpconsole = new Phpconsole;
@@ -33,8 +33,8 @@ class Console {
 		// and line where the user called the test.
 		$this->phpconsole->set_backtrace_depth(1);
 
-		// Set the domain dynamically through Laravel.
-		$host = $this->app['request']->getHost();
+		// Get the current host.
+		$host = $this->request->getHost();
 
 		// Strip optional 'www'.
 		$host = preg_replace('#^www.?#', '', $host);
