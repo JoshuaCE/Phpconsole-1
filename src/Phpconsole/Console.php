@@ -38,9 +38,10 @@ class Console {
 		// Create new Phpconsole instance.
 		$this->phpconsole = new Phpconsole;
 
-		// Set backtrace depth to 1 by default so we get the file
-		// and line where the user called the test.
-		$this->phpconsole->set_backtrace_depth(1);
+		// Set backtrace depth to 2 by default so we get the file and line
+		// where the user called the test. The reason why we're starting at 2
+		// is because Laravel will first call the Facade.
+		$this->phpconsole->set_backtrace_depth(2);
 
 		// Get the current host.
 		$host = $this->request->getHost();
