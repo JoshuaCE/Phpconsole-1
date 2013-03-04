@@ -70,11 +70,11 @@ class Console {
 	 * Change the backtrace depth.
 	 *
 	 * @param  integer $depth
-     * @return mixed
+     * @return void
 	 */
 	public function setBacktraceDepth($depth)
 	{
-		return $this->phpconsole->set_backtrace_depth($depth);
+		$this->phpconsole->set_backtrace_depth($depth);
 	}
 
 }
