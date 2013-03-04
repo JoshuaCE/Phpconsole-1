@@ -52,6 +52,51 @@ class Console {
 		// Note: this currently doesn't strips subdomains. This could give
 		// problems while trying to set cookies for user identifications.
 		$this->phpconsole->set_domain('.' . $host);
+
+		// Load the users from the config file.
+		$this->loadUsers();
+	}
+
+	/**
+	 * Add a user to the Phpconsole object.
+	 *
+	 * @param string $nickname
+	 * @param string $user_key
+	 * @param string $project_key
+     * @return void
+	 */
+	public function addUser($nickname, $user_key, $project_key)
+	{
+		$this->phpconsole->add_user($nickname, $user_key, $project_key);
+	}
+
+	/**
+	 * Loads the users from the package configuration.
+	 *
+     * @return void
+	 */
+	public function loadUsers()
+	{
+		// Get the users from the package configuration file.
+		$users = $this->config->get('phpconsole::users');
+
+		// Check to see if there are users set.
+		if (is_array($users) && !empty($users))
+		{
+			// Itterate over each user and add them to the Phpconsole object.
+			foreach ($users as $user)
+			{
+				// Only add the user if all the correct array keys have been set.
+				if (
+					array_key_exists('nickname', $user) &&
+					array_key_exists('user_key', $user) &&
+					array_key_exists('project_key', $user)
+				)
+				{
+					$this->addUser($user['nickname'], $user['user_key'], $user['nickname']);
+				}
+			}
+		}
 	}
 
 	/**
