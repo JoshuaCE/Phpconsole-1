@@ -119,7 +119,7 @@ class Console {
 	 * @param  string   $user
      * @return void
 	 */
-	public function count($number, $user = false)
+	public function count($number = 1, $user = false)
 	{
 		$this->phpconsole->count($number, $user);
 	}
