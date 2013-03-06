@@ -125,6 +125,28 @@ class Console {
 	}
 
 	/**
+	 * Sets a user cookie.
+	 *
+	 * @param  string $name
+     * @return void
+	 */
+	public function setUserCookie($name)
+	{
+		$this->phpconsole->set_user_cookie($name);
+	}
+
+	/**
+	 * Destroys a user cookie.
+	 *
+	 * @param  string $name
+     * @return void
+	 */
+	public function destroyUserCookie($name)
+	{
+		$this->phpconsole->destroy_user_cookie($name);
+	}
+
+	/**
 	 * Change the backtrace depth.
 	 *
 	 * @param  integer $depth
