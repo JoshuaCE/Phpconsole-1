@@ -101,7 +101,7 @@ class Console {
 	}
 
 	/**
-	 * Send data to phpconsole.com
+	 * Send data to a user's project.
 	 *
 	 * @param  mixed  $data
 	 * @param  string $user
