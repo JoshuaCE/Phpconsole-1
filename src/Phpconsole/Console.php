@@ -24,6 +24,13 @@ class Console {
 	protected $phpconsole;
 
 	/**
+	 * Current backtrace line.
+	 * 
+	 * @var integer
+	 */
+	protected $backtrace = 2;
+
+	/**
 	 * Create a new Phpconsole instance.
 	 * 
 	 * @param  Illuminate\Http\Request      $request
@@ -41,7 +48,7 @@ class Console {
 		// Set backtrace depth to 2 by default so we get the file and line
 		// where the user called the test. The reason why we're starting at 2
 		// is because Laravel will first call the Facade.
-		$this->phpconsole->set_backtrace_depth(2);
+		$this->setBacktraceDepth(2);
 
 		// Automatically set the domain when creating the object.
 		$this->setDomain();		
@@ -151,7 +158,14 @@ class Console {
 	 */
 	public function setUserCookie($name)
 	{
+		// Increase the backtrack depth by 1 to
+		// get the correct line in phpconsole.com
+		$this->phpconsole->set_backtrace_depth(++$this->backtrace);
+
 		$this->phpconsole->set_user_cookie($name);
+
+		// Reset the backtrace.
+		$this->phpconsole->set_backtrace_depth(--$this->backtrace);
 	}
 
 	/**
@@ -162,7 +176,14 @@ class Console {
 	 */
 	public function destroyUserCookie($name)
 	{
+		// Increase the backtrack depth by 1 to
+		// get the correct line in phpconsole.com
+		$this->phpconsole->set_backtrace_depth(++$this->backtrace);
+
 		$this->phpconsole->destroy_user_cookie($name);
+
+		// Reset the backtrace.
+		$this->phpconsole->set_backtrace_depth(--$this->backtrace);
 	}
 
 	/**
@@ -173,7 +194,9 @@ class Console {
 	 */
 	public function setBacktraceDepth($depth)
 	{
-		$this->phpconsole->set_backtrace_depth($depth);
+		$this->backtrace = $depth;
+
+		$this->phpconsole->set_backtrace_depth($this->backtrace);
 	}
 
 }
