@@ -43,7 +43,29 @@ class Console {
 		// is because Laravel will first call the Facade.
 		$this->phpconsole->set_backtrace_depth(2);
 
-		// Get the current host.
+		// Automatically set the domain when creating the object.
+		$this->setDomain();		
+
+		// Load the users from the config file.
+		$this->loadUsers();
+	}
+
+	/**
+	 * Set the domain for the current website.
+	 *
+	 * @param string $domain
+     * @return void
+	 */
+	public function setDomain($domain = null)
+	{
+		// If a domain was explicitly set, pass it along to the Phpconsole
+		// object. Also make sure to terminate the function.
+		if ($domain) {
+			return $this->phpconsole->set_domain($domain);
+		}
+
+		// If no domain has been provided, automatically set it.
+		// First get the current host.
 		$host = $this->request->getHost();
 
 		// Strip optional 'www'.
@@ -53,9 +75,6 @@ class Console {
 		// Note: this currently doesn't strips subdomains. This could give
 		// problems while trying to set cookies for user identifications.
 		$this->phpconsole->set_domain('.' . $host);
-
-		// Load the users from the config file.
-		$this->loadUsers();
 	}
 
 	/**
