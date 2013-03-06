@@ -113,6 +113,18 @@ class Console {
 	}
 
 	/**
+	 * Increment a counter on a user's project.
+	 *
+	 * @param  integger $number
+	 * @param  string   $user
+     * @return void
+	 */
+	public function count($number, $user = false)
+	{
+		$this->phpconsole->count($number, $user);
+	}
+
+	/**
 	 * Change the backtrace depth.
 	 *
 	 * @param  integer $depth
