@@ -197,6 +197,16 @@ class Console {
 	}
 
 	/**
+	 * Disables Curl error reporting.
+	 *
+     * @return void
+	 */
+	public function disableCurlErrorReporting()
+	{
+		$this->phpconsole->disable_curl_error_reporting();
+	}
+
+	/**
 	 * Change the backtrace depth.
 	 *
 	 * @param  integer $depth
