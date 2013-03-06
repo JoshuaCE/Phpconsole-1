@@ -187,6 +187,16 @@ class Console {
 	}
 
 	/**
+	 * Checks if Phpconsole is initialized.
+	 *
+     * @return boolean
+	 */
+	public function isInitialized()
+	{
+		return $this->phpconsole->is_initialized() ? true : false;
+	}
+
+	/**
 	 * Change the backtrace depth.
 	 *
 	 * @param  integer $depth
