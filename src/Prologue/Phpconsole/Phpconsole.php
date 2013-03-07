@@ -1,4 +1,4 @@
-<?php namespace Phpconsole;
+<?php namespace Prologue\Phpconsole;
 
 /**
 * http://phpconsole.com
@@ -313,7 +313,7 @@ class Phpconsole {
 
         if(!$this->is_initialized()) {
 
-            register_shutdown_function('Phpconsole\Phpconsole::shutdown', $this);
+            register_shutdown_function('Prologue\Phpconsole\Phpconsole::shutdown', $this);
 
             $this->initialized = true;
         }

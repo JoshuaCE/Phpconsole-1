@@ -1,4 +1,4 @@
-<?php namespace Phpconsole;
+<?php namespace Prologue\Phpconsole;
 
 class Console {
 

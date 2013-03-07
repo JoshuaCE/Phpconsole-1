@@ -1,4 +1,4 @@
-<?php namespace Phpconsole;
+<?php namespace Prologue\Phpconsole;
 
 use Illuminate\Support\ServiceProvider;
 

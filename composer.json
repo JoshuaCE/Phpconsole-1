@@ -1,5 +1,5 @@
 {
-    "name": "driesvints/phpconsole",
+    "name": "prologue/phpconsole",
     "description": "",
     "authors": [
         {
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Phpconsole": "src/"
+            "Prologue\\Phpconsole": "src/"
         }
     },
     "minimum-stability": "dev"

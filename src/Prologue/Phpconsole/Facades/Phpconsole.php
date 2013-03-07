@@ -1,4 +1,4 @@
-<?php namespace Phpconsole\Facades;
+<?php namespace Prologue\Phpconsole\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
