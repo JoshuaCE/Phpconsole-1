@@ -1,6 +1,6 @@
 {
     "name": "prologue/phpconsole",
-    "description": "Phpconsole for Laravel a package for interacting with Phpconsole through Laravel 4.",
+    "description": "Phpconsole for Laravel a package for interacting with Phpconsole in Laravel 4.",
     "homepage": "https://github.com/Prologue/Phpconsole",
     "license": "MIT",
     "keywords": ["phpconsole", "laravel"],
