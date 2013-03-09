@@ -39,6 +39,7 @@ class Console {
 	 */
 	public function __construct($request, $config)
 	{
+		// Set application service providers.
 		$this->request = $request;
 		$this->config = $config;
 
@@ -98,7 +99,8 @@ class Console {
 	}
 
 	/**
-	 * Loads the users from the package configuration.
+	 * Loads the users from the package configuration and
+	 * optionally sets a default user.
 	 *
      * @return void
 	 */
@@ -121,6 +123,15 @@ class Console {
 				{
 					$this->addUser($nickname, $keys['user_key'], $keys['project_key']);
 				}
+			}
+
+			// Get the default user from the config file.
+			$default = $this->config->get('phpconsole::default');
+
+			// If a default user was set and exists in the users array,
+			// register a user cookie for that user.
+			if ($default && array_key_exists($default, $users)) {
+				$this->setUserCookie($default);
 			}
 		}
 	}

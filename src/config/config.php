@@ -22,4 +22,20 @@ return array(
 
 	),
 
+	/*
+	|--------------------------------------------------------------------------
+	| Default user
+	|--------------------------------------------------------------------------
+	|
+	| You can set a default user by specifying a user nickname set in the users
+	| users array. This is especially usefull for different configuration 
+	| environments. You can set yourself as default user in your own
+	| development environment and the package will automatically set a user
+	| cookie for you. Data send to Phpconsole will be automatically send to
+	| your own Phpconsole project.
+	|
+	*/
+
+	'default' => '',
+
 );
