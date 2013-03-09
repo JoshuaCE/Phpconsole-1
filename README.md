@@ -10,11 +10,15 @@ You can install Phpconsole for your Laravel 4 project through Composer.
 
 Require the package in your `composer.json`.
 
-	"prologue/phpconsole": "dev-master"
+```json
+"prologue/phpconsole": "dev-master"
+```
 
 Run composer to install or update the package.
 
-	$ composer update
+```bash
+$ composer update
+```
 
 Register the service provider in `app/config/app.php`.
 
