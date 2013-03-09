@@ -120,7 +120,7 @@ class Console {
 					array_key_exists('project_key', $user)
 				)
 				{
-					$this->addUser($user['nickname'], $user['user_key'], $user['nickname']);
+					$this->addUser($user['nickname'], $user['user_key'], $user['project_key']);
 				}
 			}
 		}
