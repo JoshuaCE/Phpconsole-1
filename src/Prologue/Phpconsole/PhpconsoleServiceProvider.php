@@ -18,7 +18,7 @@ class PhpconsoleServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('driesvints/phpconsole');
+		$this->package('prologue/phpconsole');
 	}
 
 	/**
