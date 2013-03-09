@@ -34,7 +34,73 @@ Add the alias to the list of aliases in `app/config/app.php`.
 
 ## Documentation
 
-Documentation coming soon!
+### Configuration
+
+You can set users for Phpconsole at runtime but you can also add them in a package configuration file.
+
+To create the configuration file run this command in your command line app:
+
+```bash
+$ php artisan config:publish prologue/phpconsole
+```
+
+The configuration file will be published here: `app/config/packages/prologue/phpconsole/config.php`.
+
+You can add as many users as you like, as long as you use **unique nicknames** for each user.
+
+### Adding users at runtime
+
+In addition to setting users in the config file you can add them as well at runtime.
+
+```php
+Phpconsole::addUser('nickname', 'user_key', 'project_key');
+```
+
+If you use a nickname which has already been set, the previous user will be overwritten.
+
+### Sending data
+
+You can send strings and arrays to [phpconsole.com](http://phpconsole.com) by using the `send` function. Don't forget to add the user nickname as the second parameter.
+
+```php
+// Strings.
+$string = 'test string';
+Phpconsole::send($string, 'nickname');
+
+// Arrays.
+$array = array('foo' => array('bar', 'foo' => 'bar'), 'bar', 5);
+Phpconsole::send($array, 'nickname');
+```
+
+### Using counters
+
+You can increment counters on your Phpconsole project by using the `count` function. The first parameter is the counter identifier.
+
+```php
+Phpconsole::count(1, 'nickname'); // Counter 1 is increased by 1.
+Phpconsole::count(2, 'nickname'); // Counter 2 is increased by 1.
+```
+
+### Automatic identification
+
+You can automatically identify yourself as a user by setting a cookie through the `setUserCookie` function.
+
+```php
+Phpconsole::setUserCookie('nickname');
+```
+
+After setting the cookie you don't have to set the nickname parameter anymore for the `send` and `count` functions. The data will be automatically send to the user nickname which was set in the cookie.
+
+```php
+Phpconsole::send($data);
+Phpconsole::count(1);
+```
+
+You can destroy a user cookie by using the `destroyUserCookie` setting.
+
+```php
+Phpconsole::destroyUserCookie('nickname');
+```
 
 ## License
 
