@@ -111,16 +111,15 @@ class Console {
 		if (is_array($users) && !empty($users))
 		{
 			// Itterate over each user and add them to the Phpconsole object.
-			foreach ($users as $user)
+			foreach ($users as $nickname => $keys)
 			{
 				// Only add the user if all the correct array keys have been set.
 				if (
-					array_key_exists('nickname', $user) &&
-					array_key_exists('user_key', $user) &&
-					array_key_exists('project_key', $user)
+					array_key_exists('user_key', $keys) &&
+					array_key_exists('project_key', $keys)
 				)
 				{
-					$this->addUser($user['nickname'], $user['user_key'], $user['project_key']);
+					$this->addUser($nickname, $keys['user_key'], $keys['project_key']);
 				}
 			}
 		}

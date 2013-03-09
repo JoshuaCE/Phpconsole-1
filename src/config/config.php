@@ -15,8 +15,7 @@ return array(
 
 	'users' => array(
 
-		array(
-			'nickname'    => '',
+		'nickname' => array(
 			'user_key'    => '',
 			'project_key' => '',
 		),
