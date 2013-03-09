@@ -106,7 +106,7 @@ Phpconsole::destroyUserCookie('nickname');
 
 In addition to setting a user cookie yourself you can also let the package handle that. If you set the nickname for the default user in the config file, the package will register a user cookie for that user.
 
-This is especially usefull for different environments. Say you have a development environment. You can set the default user to use your user settings so you can use the package functions without having to set the nickname everytime. In addition, every existing package function which doesn't sets a user nickname will send the data to your account.
+This is especially usefull for different environments. Say you have a development environment. You can set the default user to use your user settings in `app/config/packages/prologue/phpconsole/<environment>/config.php` so you can use the package functions without having to set the nickname everytime. In addition, every existing package function which doesn't sets a user nickname will send the data to your account.
 
 ## License
 
