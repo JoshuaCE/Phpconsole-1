@@ -229,4 +229,15 @@ class Console {
 		$this->phpconsole->set_backtrace_depth($this->backtrace);
 	}
 
+	/**
+	 * Set path to SSL certificates.
+	 *
+	 * @param  string  $path
+     * @return void
+	 */
+	public function setPathToCertification($path)
+	{
+		$this->phpconsole->set_path_to_cert($path);
+	}
+
 }
